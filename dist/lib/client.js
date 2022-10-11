@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Client = void 0;
+exports.ApiCheckClient = void 0;
 var https = require("https");
-var Client = /** @class */ (function () {
+var ApiCheckClient = /** @class */ (function () {
     /**
      * @param {string} apiKey
      */
-    function Client(apiKey) {
+    function ApiCheckClient(apiKey) {
         this.apiKey = apiKey;
         this.baseUrl = 'https://api.apicheck.nl';
     }
@@ -17,12 +17,12 @@ var Client = /** @class */ (function () {
      * @throws Exception
      * @return void
      */
-    Client.prototype.lookup = function (countryCode, postalcode, number, numberAddition, callback) {
+    ApiCheckClient.prototype.lookup = function (countryCode, postalcode, number, numberAddition, callback) {
         this.performRequest('/lookup/v1/address/', { country: countryCode, postalcode: postalcode, number: number, numberAddition: numberAddition }, function (json) {
             callback(json);
         });
     };
-    Client.prototype.searchAddress = function (countryCode, callback, limit, number, numberAddition, street_id, city_id, postalcode_id) {
+    ApiCheckClient.prototype.searchAddress = function (countryCode, callback, limit, number, numberAddition, street_id, city_id, postalcode_id) {
         // Set required fields
         var data = {
             country: countryCode,
@@ -50,7 +50,7 @@ var Client = /** @class */ (function () {
             callback(json);
         });
     };
-    Client.prototype.searchCity = function (countryCode, name, callback, limit) {
+    ApiCheckClient.prototype.searchCity = function (countryCode, name, callback, limit) {
         // Set required fields
         var data = {
             country: countryCode,
@@ -64,7 +64,7 @@ var Client = /** @class */ (function () {
             callback(json);
         });
     };
-    Client.prototype.searchStreet = function (countryCode, name, callback, limit, city_id, postalcode_id) {
+    ApiCheckClient.prototype.searchStreet = function (countryCode, name, callback, limit, city_id, postalcode_id) {
         // Set required fields
         var data = {
             country: countryCode,
@@ -84,7 +84,7 @@ var Client = /** @class */ (function () {
             callback(json);
         });
     };
-    Client.prototype.searchPostalcode = function (countryCode, name, callback, limit, city_id) {
+    ApiCheckClient.prototype.searchPostalcode = function (countryCode, name, callback, limit, city_id) {
         // Set required fields
         var data = {
             country: countryCode,
@@ -106,7 +106,7 @@ var Client = /** @class */ (function () {
      * @param data
      * @param {Function} callback
      */
-    Client.prototype.performRequest = function (endpoint, data, callback) {
+    ApiCheckClient.prototype.performRequest = function (endpoint, data, callback) {
         var formData = '';
         var dataKeys = Object.keys(data);
         for (var i = 0; i < dataKeys.length; i++) {
@@ -128,6 +128,6 @@ var Client = /** @class */ (function () {
             throw new Error(err.message);
         });
     };
-    return Client;
+    return ApiCheckClient;
 }());
-exports.Client = Client;
+exports.ApiCheckClient = ApiCheckClient;

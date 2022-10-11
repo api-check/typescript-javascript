@@ -5,7 +5,7 @@ import { ResultSearchPostalcode } from "./result/search-postalcode";
 import { ResultSearchStreet } from "./result/search-street";
 import * as https from 'https';
 
-export class Client {
+export class ApiCheckClient {
 
     public baseUrl = 'https://api.apicheck.nl';
 

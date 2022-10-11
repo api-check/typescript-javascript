@@ -1,4 +1,4 @@
-export declare class Client {
+export declare class ApiCheckClient {
     apiKey: string;
     baseUrl: string;
     /**
