@@ -1,0 +1,21 @@
+{
+  "name": "api-check-typescript-javascript",
+  "version": "1.0.14",
+  "description": "JavaScript and TypeScript client for ApiCheck",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "mocha --reporter spec"
+  },
+  "readme": "README.md",
+  "repository": {
+    "type": "git"
+  },
+  "author": "ApiCheck",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.8.4",
+    "mocha": "^10.0.0"
+  }
+}
